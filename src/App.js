@@ -1,28 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+const list = [
+  {
+    title: "The Road to Learn React",
+    author: "Someone Famous",
+    num_comments: 3,
+    points: 4,
+    objectID: 0
+  },
+  {
+    title: "Redux",
+    author: "Dan Abramov",
+    num_comments: 8,
+    points: 2,
+    objectID: 1
+  }
+];
 
 function App() {
   let user = {
-    firstName: 'Tamal',
-    lastName: 'Sen',
+    firstName: "Tamal",
+    lastName: "Sen"
   };
+
+  const listItems = list.map((item => 
+    <div className="item-single">
+      <p>{item.title}</p>
+      <p>{item.author}</p>
+      <p>{item.num_comments}</p>
+      <p>{item.points}</p>
+    </div>
+  ));
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload!
-        </p>
-        <p>Hello Mr. {user.firstName}!</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Hey {user.firstName}! Here is your list.</p>
+        {listItems}
       </header>
     </div>
   );
